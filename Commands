@@ -2,17 +2,64 @@ Comando para ver la dirección ip:
 
 "ifconfig"
 
-Instalación del servidor web de apache:
+1. Proxy Inverso
+
+1.1 Instalar prerrequisitos:
+
+"sudo apt install curl gnupg2 ca-certificates lsb-release ubuntu-keyring"
+
+
+1.2 Instalación y configuración de Nginx como ‘proxy inverso’
+
+"sudo apt update"
+"sudo apt install nginx"
+
+2. Despliegue y ejecución de aplicación basado en ‘docker-compose’
+
+2.1 Configurar enterno de desarrollo python
+
+"export CLOUDSDK_PYTHON=/usr/bin/python2"
+
+2.2 Abrir editor nano y crear script.sh
+
+"nano script.sh"
+
+2.3 Poner las siguientes lineas dentro del editor:
+
+"#!/usr/bin/env bash
+CURRENT_WORKDIR=$(pwd)
+FILE_ID="1EH1zS1wQ_5WmvUEar2eXcB4QMj1Mo49g"
+FILENAME="docker-compose-example.tgz"
+mkdir example && cd example
+wget --no-check-certificate "https://docs.google.com/uc?export=download&id=${FILE_ID}" -O ${FILENAME}
+tar xfz ${FILENAME}
+cd ${CURRENT_WORKDIR}"
+
+
+2.4 Cambiar permisos de script.sh y ejecutarlo:
+
+"chmod +x script.sh && ./script.sh"
+
+2.5 Ejecutar docker compose up
+
+"cd example && docker-compose up"
+
+
+3. Instalar apache
+
+"apt install apache2"
+
+3.1 Instalación del servidor web de apache:
 
 "apt install apache2" -> "S"
 
-Ver estado del servidor apache:
+3.2 Ver estado del servidor apache:
 
 "systemctl status apache2"
 
-Instalación y configuración de Nginx como ‘proxy inverso’:
 
-"sudo apt install nginx"
+
+
 
 
 

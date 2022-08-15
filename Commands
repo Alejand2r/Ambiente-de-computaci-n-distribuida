@@ -1,0 +1,18 @@
+Comando para ver la dirección ip:
+
+"ifconfig"
+
+Instalación del servidor web de apache:
+
+"apt install apache2" -> "S"
+
+Ver estado del servidor apache:
+
+"systemctl status apache2"
+
+Instalación y configuración de Nginx como ‘proxy inverso’:
+
+"sudo apt install nginx"
+
+
+
